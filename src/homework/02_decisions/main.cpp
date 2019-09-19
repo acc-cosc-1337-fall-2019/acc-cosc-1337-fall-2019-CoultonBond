@@ -52,7 +52,18 @@ int main()
 
 
 	double gpa = calculate_gpa(sum_credit_hours, sum_credit_points);
-	cout << "GPA: " << gpa;
+	cout << "GPA: " << gpa<< "\n";
+
+	//homework 3
+	int number_grade = 0;
+	cout << "Enter number grade: ";
+	cin >> number_grade;
+
+	string returned_letter_grade1 = get_letter_grade_using_if(number_grade);
+	cout << "Letter Grade: " << returned_letter_grade1 << "\n";
+
+	string returned_letter_grade2 = get_letter_grade_using_switch(number_grade);
+	cout << "Letter Grade: " << returned_letter_grade2;
 
 	return 0;
 }
