@@ -1,7 +1,7 @@
 #include "bank_account.h"
 
 //bank_account.cpp
-BankAccount::BankAccount()
+BankAccount::BankAccount()//constructor, special function
 {
 	//code to read balance from database
 	balance = 500;
@@ -15,7 +15,15 @@ void BankAccount::deposit(int amount)
 	}
 }
 
-int BankAccount::get_balance()
+void BankAccount::withdraw(int amount)
+{
+	if (balance > amount)
+	{
+		balance -= amount;//balance = balance - amount; same code
+	}
+}
+
+int BankAccount::get_balance() const // makes balance read only, unmodifiable
 {
 	return balance;
 }
