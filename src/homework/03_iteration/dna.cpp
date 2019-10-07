@@ -6,7 +6,7 @@ Calculate GC content:
 Iterate string count Gs and Cs, divide count by string length.
 Return quotient.
 */
-double get_gc_content(const string DNA)
+double get_gc_content(const string& DNA)
 {
 	int DNA_length = DNA.size(); 
 	string symbol = "";
