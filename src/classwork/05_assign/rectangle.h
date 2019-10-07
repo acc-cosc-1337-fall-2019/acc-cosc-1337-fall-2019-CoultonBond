@@ -4,18 +4,20 @@ has one public function get_area that returns the area of the rectangle, and one
 that calculates area of the rectangle.  The class has 3 int private variables area, width, and height.
 */
 
-class Rectanglee
-{
-public:
-	Rectanglee(int w, int h) : width(w), height(h) { calculate_area(); }; //constructor
-    int get_area()const; //must be const
+namespace acc {
+	class Rectangle
+	{
+	public:
+		Rectangle(int w, int h) : width(w), height(h) { calculate_area(); }; //constructor
+		int get_area()const; //must be const
 
 
 
-private:
-	
-	void calculate_area(); //call calculate area in constructor in rectangle.cpp 
-	int width;
-	int height;
-	int area;
-};
+	private:
+
+		void calculate_area(); //call calculate area in constructor in rectangle.cpp 
+		int width;
+		int height;
+		int area;
+	};
+}
