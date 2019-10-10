@@ -25,8 +25,9 @@ int main()
 	
 	for (auto rec : rectangles)//for each rec in rectangles, execute code (rec can be anything)
 	{
-		cout << "Area: " << rec.get_area() << "\n";
+		cout << rec;
 	}
+
 
 	return 0;
 }
