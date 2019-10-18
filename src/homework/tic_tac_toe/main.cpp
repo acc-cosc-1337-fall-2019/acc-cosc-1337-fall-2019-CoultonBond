@@ -24,22 +24,12 @@ int main()
 
 		game.start_game(player);
 
-		do
+		while (!game.game_over())
 		{
-			game.display_board();
-			cout << "Enter the the chosen position for " << game.get_player() << ": ";
-			cin >> position;
+			cin >> game;
+			cout << game;
+		}
 
-			while (position <= 0 || position > 9)
-			{
-				cout << "Please choose a position between 1 and 9: ";
-				cin >> position;
-			}
-
-			game.mark_board(position);
-
-		} while (game.game_over() != true);
-		game.display_board();
 		cout << "Winner\n";
 		cout << "Enter y to play again: ";
 		cin >> choice;
