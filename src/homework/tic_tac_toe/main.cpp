@@ -1,18 +1,19 @@
-#include <tic_tac_toe.h>
+#include <tic_tac_toe_manager.h>
 #include<iostream>
 
 using std::cin; using std::cout;
 
 int main()
 {
+	TicTacToeManager manager;
 	string player;
 	int position;
 	string choice = "y";
 
-	TicTacToe game;
-
 	do //(choice == "y" || choice == "Y")
 	{
+		TicTacToe game;
+
 		cout << "Would player 1 rather be X or O? : ";
 		cin >> player;
 
@@ -30,12 +31,18 @@ int main()
 			cout << game;
 		}
 
+		manager.save_game(game);
+
 		cout << "Winner\n";
 		cout << "Enter y to play again: ";
 		cin >> choice;
 
 
 	} while (choice == "y" || choice == "Y");
+
+	cout << "History: \n";
+	cout << manager;
+
 	return 0;
 }
 		

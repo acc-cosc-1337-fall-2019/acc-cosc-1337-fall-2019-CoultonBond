@@ -163,6 +163,8 @@ TEST_CASE("Test win by diagonally from top left")
 	game.mark_board(9);//X 
 	//X wins 
 	REQUIRE(game.game_over() == true);
+
+	//REQUIRE(game.get_winner() == "X");
 }
 
 TEST_CASE("Test win diagonally from bottom left")
