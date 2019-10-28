@@ -208,8 +208,6 @@ TEST_CASE("Test for no winner")
 	REQUIRE(game.game_over() == false);
 	game.mark_board(6);//X
 	REQUIRE(game.game_over() == true);
-
-
 }
 
 
