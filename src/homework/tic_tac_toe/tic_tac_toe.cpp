@@ -113,8 +113,6 @@ bool TicTacToe::check_board_full()
 
 void TicTacToe::set_winner()
 {
-	if(check_board_full())
-
 	if (next_player == "X")
 	{
 		winner = "O";
