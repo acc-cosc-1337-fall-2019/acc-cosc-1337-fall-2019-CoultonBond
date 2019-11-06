@@ -102,26 +102,34 @@ void TicTacToe::set_winner()
 	}
 }
 
-std::istream& operator>>(std::istream& in, TicTacToe& position)
+std::istream& operator>>(std::istream& in, TicTacToe& t)
 {
 	int placement;//position
-	cout << "Enter the chosen position for " << position.get_player() << ": ";
+	cout << "Enter the chosen position for " << t.get_player() << ": ";
 	in >> placement;
 
-	while (placement <= 0 || placement > 9)
+	while (placement <= 0 || placement > t.pegs.size())
 	{
-		cout << "Please choose a position between 1 and 9: ";
+		std::cout << "Enter position from 1 to " << t.pegs.size() << ": ";
 		in >> placement;
 	}
-	position.mark_board(placement);
+	t.mark_board(placement);
 	return in;
 }
 
-std::ostream& operator<<(std::ostream& out, const TicTacToe& display)
+std::ostream& operator<<(std::ostream& out, const TicTacToe& t)
 {
-	out << display.pegs[0] << "|" << display.pegs[1] << "|" << display.pegs[2] << "\n"
-	    << display.pegs[3] << "|" << display.pegs[4] << "|" << display.pegs[5] << "\n"
-	    << display.pegs[6] << "|" << display.pegs[7] << "|" << display.pegs[8] << "\n";
+	for (std::size_t i = 0; i < t.pegs.size(); i += sqrt(t.pegs.size()))
+	{
+		out << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2];
+
+		if (t.pegs.size() == 16)
+		{
+			out << "|" << t.pegs[i + 3];
+		}
+
+		out << "\n";
+	}
 
 	return out;
 }
