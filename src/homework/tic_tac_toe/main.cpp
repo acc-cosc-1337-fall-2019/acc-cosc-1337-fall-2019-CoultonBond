@@ -7,7 +7,8 @@ using std::cin; using std::cout;
 
 int main()
 {
-	TicTacToeManager manager;
+	unique_ptr<TicTacToeManager> manager = 
+		std::make_unique<TicTacToeManager>();
 	string player;
 	int game_type;
 	int position;
@@ -17,15 +18,15 @@ int main()
 	{
 		cout << "Play win by 3 or 4: ";
 		cin >> game_type;
-		TicTacToe* game;//pointer
+		unique_ptr<TicTacToe> game;//pointer
 
 		if (game_type == 3)
 		{
-			game = new TicTacToe3();
+			std::make_unique<TicTacToe3>();
 		}
 		else
 		{
-			game = new TicTacToe4();
+			std::make_unique<TicTacToe4>();
 		}
 
 		//TicTacToe game;
@@ -47,7 +48,7 @@ int main()
 			cout << *game;
 		}
 
-		manager.save_game(*game);
+		manager->save_game(game);
 
 		cout << "Winner\n";
 		cout << "Enter y to play again: ";
