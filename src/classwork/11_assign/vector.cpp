@@ -52,6 +52,26 @@ Vector& Vector::operator=(Vector&& v)//move assignment
 	return *this;
 }
 
+void Vector::Reserve(size_t new_allocation)
+{
+	if (new_allocation <= space)
+	{
+		return;
+	}
+
+	int* temp = new int[new_allocation];
+
+	for (size_t i = 0; i < size; ++i)
+	{
+		temp[i] = nums[i];
+	}
+
+	delete[] nums;
+	nums = temp;
+
+	space = new_allocation;
+}
+
 Vector::~Vector()
 {
 	delete[] nums;
