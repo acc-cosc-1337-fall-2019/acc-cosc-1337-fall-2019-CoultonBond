@@ -2,9 +2,15 @@
 #include<iostream>
 //
 
+//this will create an infinite stack memory call
+void call_myself()
+{
+	call_myself();
+}
+
 void display(int n)
 {
-	if (n == 0) 
+	if (n == 0) //base case
 	{
 		std::cout << "base case\n";
 		return;
@@ -14,7 +20,7 @@ void display(int n)
 	display(n-1);
 }
 
-int factorial(int n) 
+int factorial(int n)
 {
 	int f = 1;
 
